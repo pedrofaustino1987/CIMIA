@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIM IA — Presentación Hackathon 2026</title>
+    <meta name="description" content="Plataforma de IA para la transformación del sector inmobiliario y productivo de Misiones">
+    <meta property="og:title" content="CIM IA — Hackathon Silicon Misiones 2026">
+    <meta property="og:description" content="5 agentes de IA · Una plataforma · Transformación digital inmobiliaria">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="https://z-cdn-media.chatglm.cn/files/644b04cf-1ae0-4ed4-b69d-c44993e2cf5c.png?auth_key=1881194778-11e35bc793294116878229ea8dc7fc06-0-ce61ac10fea39e1a4cc2dc2bbcf30530" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -11,7 +16,13 @@
         * { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; box-sizing: border-box; }
         ::selection { background: #EA580C; color: #FFF; }
         html, body { overflow: hidden; width: 100vw; height: 100vh; }
-        .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity 0.5s ease, visibility 0.5s ease; overflow: hidden; }
+
+        .slide {
+            position: absolute; inset: 0;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            overflow: hidden;
+        }
         .slide.active { opacity: 1; visibility: visible; }
         .slide.active .s1 { animation: fadeUp 0.5s 0.1s both; }
         .slide.active .s2 { animation: fadeUp 0.5s 0.2s both; }
@@ -19,14 +30,23 @@
         .slide.active .s4 { animation: fadeUp 0.5s 0.4s both; }
         .slide.active .s5 { animation: fadeUp 0.5s 0.5s both; }
         .slide.active .s6 { animation: fadeUp 0.5s 0.6s both; }
+
         @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes scaleIn { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: scale(1); } }
-        @keyframes glowPulse { 0%, 100% { box-shadow: 0 0 40px rgba(234,88,12,0.2), 0 0 80px rgba(234,88,12,0.05); } 50% { box-shadow: 0 0 60px rgba(234,88,12,0.35), 0 0 120px rgba(234,88,12,0.1); } }
-        @keyframes logoGlow { 0%, 100% { box-shadow: 0 0 30px rgba(234,88,12,0.15); } 50% { box-shadow: 0 0 60px rgba(234,88,12,0.3); } }
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(234,88,12,0.2), 0 0 80px rgba(234,88,12,0.05); }
+            50% { box-shadow: 0 0 60px rgba(234,88,12,0.35), 0 0 120px rgba(234,88,12,0.1); }
+        }
+        @keyframes logoGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(234,88,12,0.15); }
+            50% { box-shadow: 0 0 60px rgba(234,88,12,0.3); }
+        }
+
         .logo-enter { animation: scaleIn 0.8s 0.2s both; }
         .logo-glow-ring { animation: glowPulse 3s ease-in-out infinite; }
         .logo-glow { animation: logoGlow 3s ease-in-out infinite; }
         .accent-bar { background: linear-gradient(90deg, #EA580C 0%, #F97316 50%, #FB923C 100%); }
+
         .stat-card { transition: border-color 0.3s ease, box-shadow 0.3s ease; }
         .stat-card:hover { border-color: #EA580C; box-shadow: 0 1px 3px rgba(234,88,12,0.1); }
         .agent-card { transition: border-color 0.3s ease; }
@@ -55,15 +75,19 @@
             </div>
         </div>
         <div class="flex items-center gap-1 flex-shrink-0">
-            <button onclick="prevSlide()" class="w-8 h-8 flex items-center justify-center rounded hover:bg-neutral-50 transition-colors" aria-label="Anterior"><i data-lucide="chevron-left" class="w-4 h-4 text-neutral-400"></i></button>
-            <button onclick="nextSlide()" class="w-8 h-8 flex items-center justify-center rounded hover:bg-neutral-50 transition-colors" aria-label="Siguiente"><i data-lucide="chevron-right" class="w-4 h-4 text-neutral-400"></i></button>
+            <button onclick="prevSlide()" class="w-8 h-8 flex items-center justify-center rounded hover:bg-neutral-50 transition-colors" aria-label="Anterior">
+                <i data-lucide="chevron-left" class="w-4 h-4 text-neutral-400"></i>
+            </button>
+            <button onclick="nextSlide()" class="w-8 h-8 flex items-center justify-center rounded hover:bg-neutral-50 transition-colors" aria-label="Siguiente">
+                <i data-lucide="chevron-right" class="w-4 h-4 text-neutral-400"></i>
+            </button>
         </div>
     </footer>
 
     <main class="relative w-full h-full" id="deck">
 
         <!-- ========== SLIDE 00: LOGO SPLASH ========== -->
-        <section class="slide active" data-slide="0" data-label="Logo">
+        <section class="slide active" data-slide="0" data-label="Logo" role="region" aria-label="Logo CIM IA">
             <div class="h-screen flex flex-col justify-center items-center bg-neutral-900 relative overflow-hidden">
                 <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;"></div>
                 <div class="relative z-10 flex flex-col items-center justify-center">
@@ -79,7 +103,7 @@
         </section>
 
         <!-- ========== SLIDE 01: COVER ========== -->
-        <section class="slide" data-slide="1" data-label="Portada">
+        <section class="slide" data-slide="1" data-label="Portada" role="region" aria-label="Portada">
             <div class="h-screen flex flex-col justify-center items-center bg-neutral-900 relative overflow-hidden px-6">
                 <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;"></div>
                 <div class="relative z-10 text-center max-w-4xl w-full">
@@ -103,77 +127,202 @@
         </section>
 
         <!-- ========== SLIDE 02: PROBLEMÁTICA ========== -->
-        <section class="slide" data-slide="2" data-label="Problemática">
+        <section class="slide" data-slide="2" data-label="Problemática" role="region" aria-label="Problemática">
             <div class="h-screen flex flex-col justify-center bg-white px-6 md:px-16 lg:px-24 overflow-hidden">
                 <div class="max-w-6xl w-full">
-                    <div class="s1 flex items-center gap-4 mb-6"><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">01</span><div class="w-8 h-px bg-orange-600"></div><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Problemática</span></div>
+                    <div class="s1 flex items-center gap-4 mb-6">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">01</span>
+                        <div class="w-8 h-px bg-orange-600"></div>
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Problemática</span>
+                    </div>
                     <h2 class="s2 text-2xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.03em] leading-[1.1] mb-3 max-w-full">El sector inmobiliario de Misiones opera al <span class="text-orange-600">40%</span> de eficiencia</h2>
                     <p class="s3 text-xs md:text-sm text-neutral-500 font-light leading-relaxed max-w-2xl mb-8">El 60% restante se diluye en fragmentación, asimetría de datos y procesos manuales.</p>
                     <div class="s4 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-6">
-                        <div class="stat-card border border-neutral-200 rounded-lg p-4 md:p-5"><div class="flex items-start gap-3"><div class="w-7 h-7 md:w-8 md:h-8 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="scatter-chart" class="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-neutral-900 mb-1">Fragmentación informativa</h3><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">Propiedades dispersas en +15 portales. El <strong class="text-neutral-700">35% de transacciones se pierden</strong> por falta de centralización.</p></div></div></div>
-                        <div class="stat-card border border-neutral-200 rounded-lg p-4 md:p-5"><div class="flex items-start gap-3"><div class="w-7 h-7 md:w-8 md:h-8 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="eye-off" class="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-neutral-900 mb-1">Asimetría de datos</h3><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">El <strong class="text-neutral-700">68% de las firmas pierden clientes</strong> por no garantizar visibilidad ni valoraciones reales.</p></div></div></div>
-                        <div class="stat-card border border-neutral-200 rounded-lg p-4 md:p-5"><div class="flex items-start gap-3"><div class="w-7 h-7 md:w-8 md:h-8 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="clock" class="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-neutral-900 mb-1">Procesos manuales</h3><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed"><strong class="text-neutral-700">12 horas</strong> de gestión manual por operación vs. 2 horas con automatización.</p></div></div></div>
-                        <div class="stat-card border border-neutral-200 rounded-lg p-4 md:p-5"><div class="flex items-start gap-3"><div class="w-7 h-7 md:w-8 md:h-8 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="unlink" class="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-neutral-900 mb-1">Desconexión intersectorial</h3><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">El <strong class="text-neutral-700">45% de parcelas urbanizadas</strong> sin edificar ni generar valor económico.</p></div></div></div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-4 md:p-5">
+                            <div class="flex items-start gap-3">
+                                <div class="w-7 h-7 md:w-8 md:h-8 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="scatter-chart" class="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-neutral-900 mb-1">Fragmentación informativa</h3><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">Propiedades dispersas en +15 portales. El <strong class="text-neutral-700">35% de transacciones se pierden</strong> por falta de centralización.</p></div>
+                            </div>
+                        </div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-4 md:p-5">
+                            <div class="flex items-start gap-3">
+                                <div class="w-7 h-7 md:w-8 md:h-8 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="eye-off" class="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-neutral-900 mb-1">Asimetría de datos</h3><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">El <strong class="text-neutral-700">68% de las firmas pierden clientes</strong> por no garantizar visibilidad ni valoraciones reales.</p></div>
+                            </div>
+                        </div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-4 md:p-5">
+                            <div class="flex items-start gap-3">
+                                <div class="w-7 h-7 md:w-8 md:h-8 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="clock" class="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-neutral-900 mb-1">Procesos manuales</h3><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed"><strong class="text-neutral-700">12 horas</strong> de gestión manual por operación vs. 2 horas con automatización.</p></div>
+                            </div>
+                        </div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-4 md:p-5">
+                            <div class="flex items-start gap-3">
+                                <div class="w-7 h-7 md:w-8 md:h-8 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="unlink" class="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-neutral-900 mb-1">Desconexión intersectorial</h3><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">El <strong class="text-neutral-700">45% de parcelas urbanizadas</strong> sin edificar ni generar valor económico.</p></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="s5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-neutral-400"><span>Sector = <strong class="text-neutral-600">8% del PIB</strong> provincial</span><span class="w-1 h-1 bg-neutral-300 rounded-full hidden sm:block"></span><span><strong class="text-neutral-600">+15.000 puestos</strong> de trabajo</span><span class="w-1 h-1 bg-neutral-300 rounded-full hidden sm:block"></span><span>Optimización 20% = <strong class="text-neutral-600">$45.000M/año</strong></span></div>
+                    <div class="s5 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-neutral-400">
+                        <span>Sector = <strong class="text-neutral-600">8% del PIB</strong> provincial</span>
+                        <span class="w-1 h-1 bg-neutral-300 rounded-full hidden sm:block"></span>
+                        <span><strong class="text-neutral-600">+15.000 puestos</strong> de trabajo</span>
+                        <span class="w-1 h-1 bg-neutral-300 rounded-full hidden sm:block"></span>
+                        <span>Optimización 20% = <strong class="text-neutral-600">$45.000M/año</strong></span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ========== SLIDE 03: EVIDENCIA ========== -->
-        <section class="slide" data-slide="3" data-label="Evidencia">
+        <section class="slide" data-slide="3" data-label="Evidencia" role="region" aria-label="Evidencia">
             <div class="h-screen flex flex-col justify-center bg-neutral-900 px-6 md:px-16 lg:px-24 overflow-hidden">
                 <div class="max-w-6xl w-full">
-                    <div class="s1 flex items-center gap-4 mb-6"><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">02</span><div class="w-8 h-px bg-orange-500"></div><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">Evidencia</span></div>
+                    <div class="s1 flex items-center gap-4 mb-6">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">02</span>
+                        <div class="w-8 h-px bg-orange-500"></div>
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">Evidencia</span>
+                    </div>
                     <h2 class="s2 text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] text-white mb-4 max-w-full">Los datos confirman la <span class="text-orange-500">crisis</span></h2>
                     <p class="s3 text-xs text-neutral-400 font-light leading-relaxed max-w-xl mb-10">Tres fuentes independientes respaldan la urgencia de transformación digital.</p>
                     <div class="s4 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6">
-                        <div class="border border-neutral-800 rounded-lg p-6 md:p-8 text-center"><span class="block text-4xl md:text-5xl font-semibold text-white mb-2">82<span class="text-orange-500">%</span></span><div class="w-10 h-[2px] bg-neutral-800 mx-auto mb-3 rounded-full"></div><p class="text-xs md:text-sm font-medium text-white mb-1.5">Barrera crítica</p><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">Corredores califican la dispersión de portales como amenaza para la supervivencia.</p><p class="text-[10px] text-neutral-600 mt-3 uppercase tracking-wider">CIM · 2025</p></div>
-                        <div class="border border-neutral-800 rounded-lg p-6 md:p-8 text-center"><span class="block text-4xl md:text-5xl font-semibold text-white mb-2">0.32</span><div class="w-10 h-[2px] bg-neutral-800 mx-auto mb-3 rounded-full"></div><p class="text-xs md:text-sm font-medium text-white mb-1.5">Índice de digitalización</p><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">El más bajo del NEA, sobre escala ideal de 1.</p><p class="text-[10px] text-neutral-600 mt-3 uppercase tracking-wider">Silicon Misiones</p></div>
-                        <div class="border border-neutral-800 rounded-lg p-6 md:p-8 text-center"><span class="block text-4xl md:text-5xl font-semibold text-white mb-2">18<span class="text-orange-500">%</span></span><div class="w-10 h-[2px] bg-neutral-800 mx-auto mb-3 rounded-full"></div><p class="text-xs md:text-sm font-medium text-white mb-1.5">Automatización real</p><p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">Solo el 18% de inmobiliarias usan herramientas de gestión inteligente.</p><p class="text-[10px] text-neutral-600 mt-3 uppercase tracking-wider">Colegio de Corredores</p></div>
+                        <div class="border border-neutral-800 rounded-lg p-6 md:p-8 text-center">
+                            <span class="block text-4xl md:text-5xl font-semibold text-white mb-2">82<span class="text-orange-500">%</span></span>
+                            <div class="w-10 h-[2px] bg-neutral-800 mx-auto mb-3 rounded-full"></div>
+                            <p class="text-xs md:text-sm font-medium text-white mb-1.5">Barrera crítica</p>
+                            <p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">Corredores califican la dispersión de portales como amenaza para la supervivencia.</p>
+                            <p class="text-[10px] text-neutral-600 mt-3 uppercase tracking-wider">CIM · 2025</p>
+                        </div>
+                        <div class="border border-neutral-800 rounded-lg p-6 md:p-8 text-center">
+                            <span class="block text-4xl md:text-5xl font-semibold text-white mb-2">0.32</span>
+                            <div class="w-10 h-[2px] bg-neutral-800 mx-auto mb-3 rounded-full"></div>
+                            <p class="text-xs md:text-sm font-medium text-white mb-1.5">Índice de digitalización</p>
+                            <p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">El más bajo del NEA, sobre escala ideal de 1.</p>
+                            <p class="text-[10px] text-neutral-600 mt-3 uppercase tracking-wider">Silicon Misiones</p>
+                        </div>
+                        <div class="border border-neutral-800 rounded-lg p-6 md:p-8 text-center">
+                            <span class="block text-4xl md:text-5xl font-semibold text-white mb-2">18<span class="text-orange-500">%</span></span>
+                            <div class="w-10 h-[2px] bg-neutral-800 mx-auto mb-3 rounded-full"></div>
+                            <p class="text-xs md:text-sm font-medium text-white mb-1.5">Automatización real</p>
+                            <p class="text-[11px] md:text-xs text-neutral-500 leading-relaxed">Solo el 18% de inmobiliarias usan herramientas de gestión inteligente.</p>
+                            <p class="text-[10px] text-neutral-600 mt-3 uppercase tracking-wider">Colegio de Corredores</p>
+                        </div>
                     </div>
-                    <div class="s5 border border-neutral-800 rounded-lg p-4 flex items-start gap-3"><div class="w-7 h-7 rounded bg-orange-600/10 flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-orange-500"></i></div><div class="min-w-0"><p class="text-xs font-medium text-white mb-0.5">Consecuencia directa</p><p class="text-[11px] text-neutral-400 leading-relaxed">60% del tiempo en tareas burocráticas · 40% de transacciones fugan a plataformas extraprovinciales</p></div></div>
+                    <div class="s5 border border-neutral-800 rounded-lg p-4 flex items-start gap-3">
+                        <div class="w-7 h-7 rounded bg-orange-600/10 flex items-center justify-center flex-shrink-0 mt-0.5"><i data-lucide="alert-triangle" class="w-3.5 h-3.5 text-orange-500"></i></div>
+                        <div class="min-w-0">
+                            <p class="text-xs font-medium text-white mb-0.5">Consecuencia directa</p>
+                            <p class="text-[11px] text-neutral-400 leading-relaxed">60% del tiempo en tareas burocráticas · 40% de transacciones fugan a plataformas extraprovinciales</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ========== SLIDE 04: USUARIOS ========== -->
-        <section class="slide" data-slide="4" data-label="Usuarios Objetivo">
+        <section class="slide" data-slide="4" data-label="Usuarios Objetivo" role="region" aria-label="Usuarios Objetivo">
             <div class="h-screen flex flex-col justify-center bg-white px-6 md:px-16 lg:px-24 overflow-hidden">
                 <div class="max-w-6xl w-full">
-                    <div class="s1 flex items-center gap-4 mb-6"><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">03</span><div class="w-8 h-px bg-orange-600"></div><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Usuarios Objetivo</span></div>
+                    <div class="s1 flex items-center gap-4 mb-6">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">03</span>
+                        <div class="w-8 h-px bg-orange-600"></div>
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Usuarios Objetivo</span>
+                    </div>
                     <h2 class="s2 text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] mb-3 max-w-full">Ecosistema <span class="text-orange-600">B2B2C</span> integral</h2>
                     <p class="s3 text-xs text-neutral-500 font-light leading-relaxed max-w-xl mb-8">CIM IA interconecta a todos los actores clave de la matriz productiva provincial.</p>
                     <div class="s4 grid grid-cols-2 md:grid-cols-3 gap-3">
-                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4"><div class="flex items-center gap-2 mb-2"><div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="building-2" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Inmobiliarias</h3><span class="text-[10px] text-orange-600 font-semibold">300</span></div></div><p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">70% PyMEs familiares. Visibilidad y costos contenidos.</p></div>
-                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4"><div class="flex items-center gap-2 mb-2"><div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="hard-hat" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Constructoras</h3><span class="text-[10px] text-orange-600 font-semibold">85</span></div></div><p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Terrenos viables e inversores calificados.</p></div>
-                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4"><div class="flex items-center gap-2 mb-2"><div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="users" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Compradores</h3><span class="text-[10px] text-orange-600 font-semibold">+200K/año</span></div></div><p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Transparencia y agilidad sin duplicación.</p></div>
-                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4"><div class="flex items-center gap-2 mb-2"><div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="paintbrush" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Proveedores hogar</h3><span class="text-[10px] text-orange-600 font-semibold">120</span></div></div><p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Refacciones, climatización. Alta intención.</p></div>
-                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4"><div class="flex items-center gap-2 mb-2"><div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="landmark" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Financieras</h3><span class="text-[10px] text-orange-600 font-semibold">12</span></div></div><p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Créditos sobre perfiles solventes.</p></div>
-                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4"><div class="flex items-center gap-2 mb-2"><div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="shield" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div><div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Estado provincial</h3><span class="text-[10px] text-orange-600 font-semibold">Min. Industria</span></div></div><p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Analítica para políticas de infraestructura.</p></div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="building-2" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Inmobiliarias</h3><span class="text-[10px] text-orange-600 font-semibold">300</span></div>
+                            </div>
+                            <p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">70% PyMEs familiares. Visibilidad y costos contenidos.</p>
+                        </div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="hard-hat" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Constructoras</h3><span class="text-[10px] text-orange-600 font-semibold">85</span></div>
+                            </div>
+                            <p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Terrenos viables e inversores calificados.</p>
+                        </div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="users" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Compradores</h3><span class="text-[10px] text-orange-600 font-semibold">+200K/año</span></div>
+                            </div>
+                            <p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Transparencia y agilidad sin duplicación.</p>
+                        </div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="paintbrush" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Proveedores hogar</h3><span class="text-[10px] text-orange-600 font-semibold">120</span></div>
+                            </div>
+                            <p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Refacciones, climatización. Alta intención.</p>
+                        </div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="landmark" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Financieras</h3><span class="text-[10px] text-orange-600 font-semibold">12</span></div>
+                            </div>
+                            <p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Créditos sobre perfiles solventes.</p>
+                        </div>
+                        <div class="stat-card border border-neutral-200 rounded-lg p-3 md:p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <div class="w-6 h-6 md:w-7 md:h-7 rounded bg-orange-50 flex items-center justify-center flex-shrink-0"><i data-lucide="shield" class="w-3 h-3 md:w-3.5 md:h-3.5 text-orange-600"></i></div>
+                                <div class="min-w-0"><h3 class="text-[11px] md:text-xs font-semibold text-neutral-900 truncate">Estado provincial</h3><span class="text-[10px] text-orange-600 font-semibold">Min. Industria</span></div>
+                            </div>
+                            <p class="text-[10px] md:text-[11px] text-neutral-500 leading-relaxed">Analítica para políticas de infraestructura.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ========== SLIDE 05: SOLUCIÓN ========== -->
-        <section class="slide" data-slide="5" data-label="Solución">
+        <section class="slide" data-slide="5" data-label="Solución" role="region" aria-label="Solución Propuesta">
             <div class="h-screen flex flex-col justify-center bg-neutral-50 px-6 md:px-16 lg:px-24 overflow-hidden">
                 <div class="max-w-6xl w-full">
-                    <div class="s1 flex items-center gap-4 mb-6"><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">04</span><div class="w-8 h-px bg-orange-600"></div><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Solución Propuesta</span></div>
+                    <div class="s1 flex items-center gap-4 mb-6">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">04</span>
+                        <div class="w-8 h-px bg-orange-600"></div>
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Solución Propuesta</span>
+                    </div>
                     <h2 class="s2 text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] mb-3 max-w-full">CIM IA: plataforma <span class="text-orange-600">unificada</span> con IA múltiple</h2>
                     <p class="s3 text-xs text-neutral-500 font-light leading-relaxed max-w-2xl mb-8">Orquesta e integra digitalmente a todos los actores del mercado, automatizando la cadena de valor completa.</p>
                     <div class="s4 grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
-                        <div class="bg-white border border-neutral-200 rounded-lg p-4 md:p-5"><div class="w-7 h-7 rounded bg-orange-50 flex items-center justify-center mb-3"><i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-orange-600"></i></div><h3 class="text-xs font-semibold text-neutral-900 mb-1">Módulos Operativos</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Buscador, optimizador de loteos, mercado de refacciones y simulación crediticia.</p></div>
-                        <div class="bg-white border border-neutral-200 rounded-lg p-4 md:p-5"><div class="w-7 h-7 rounded bg-orange-50 flex items-center justify-center mb-3"><i data-lucide="brain-circuit" class="w-3.5 h-3.5 text-orange-600"></i></div><h3 class="text-xs font-semibold text-neutral-900 mb-1">Core Engine de IA</h3><p class="text-[11px] text-neutral-500 leading-relaxed">5 agentes especializados que cooperan en paralelo de forma autónoma.</p></div>
-                        <div class="bg-white border border-neutral-200 rounded-lg p-4 md:p-5"><div class="w-7 h-7 rounded bg-orange-50 flex items-center justify-center mb-3"><i data-lucide="database" class="w-3.5 h-3.5 text-orange-600"></i></div><h3 class="text-xs font-semibold text-neutral-900 mb-1">Integración de Datos</h3><p class="text-[11px] text-neutral-500 leading-relaxed">API con catastro, geolocalización, materiales y scoring bancario.</p></div>
+                        <div class="bg-white border border-neutral-200 rounded-lg p-4 md:p-5">
+                            <div class="w-7 h-7 rounded bg-orange-50 flex items-center justify-center mb-3"><i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-orange-600"></i></div>
+                            <h3 class="text-xs font-semibold text-neutral-900 mb-1">Módulos Operativos</h3>
+                            <p class="text-[11px] text-neutral-500 leading-relaxed">Buscador, optimizador de loteos, mercado de refacciones y simulación crediticia.</p>
+                        </div>
+                        <div class="bg-white border border-neutral-200 rounded-lg p-4 md:p-5">
+                            <div class="w-7 h-7 rounded bg-orange-50 flex items-center justify-center mb-3"><i data-lucide="brain-circuit" class="w-3.5 h-3.5 text-orange-600"></i></div>
+                            <h3 class="text-xs font-semibold text-neutral-900 mb-1">Core Engine de IA</h3>
+                            <p class="text-[11px] text-neutral-500 leading-relaxed">5 agentes especializados que cooperan en paralelo de forma autónoma.</p>
+                        </div>
+                        <div class="bg-white border border-neutral-200 rounded-lg p-4 md:p-5">
+                            <div class="w-7 h-7 rounded bg-orange-50 flex items-center justify-center mb-3"><i data-lucide="database" class="w-3.5 h-3.5 text-orange-600"></i></div>
+                            <h3 class="text-xs font-semibold text-neutral-900 mb-1">Integración de Datos</h3>
+                            <p class="text-[11px] text-neutral-500 leading-relaxed">API con catastro, geolocalización, materiales y scoring bancario.</p>
+                        </div>
                     </div>
                     <div class="s5 border border-neutral-200 rounded-lg bg-white overflow-hidden">
-                        <div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200"><span class="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-500">Diferenciadores estratégicos</span></div>
+                        <div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200">
+                            <span class="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-500">Diferenciadores estratégicos</span>
+                        </div>
                         <div class="divide-y divide-neutral-100">
-                            <div class="px-4 py-3 flex items-start gap-3 feature-row"><span class="text-[11px] font-semibold text-orange-600 flex-shrink-0 mt-0.5">01</span><div class="min-w-0"><p class="text-xs font-semibold text-neutral-900 mb-0.5">Hiperlocalización regional</p><p class="text-[11px] text-neutral-500">Algoritmos sobre normativa legal y dinámicas específicas de Misiones.</p></div></div>
-                            <div class="px-4 py-3 flex items-start gap-3 feature-row"><span class="text-[11px] font-semibold text-orange-600 flex-shrink-0 mt-0.5">02</span><div class="min-w-0"><p class="text-xs font-semibold text-neutral-900 mb-0.5">Integración vertical multirubro</p><p class="text-[11px] text-neutral-500">Tierra → construcción → mantenimiento. Ciclo completo en un flujo.</p></div></div>
-                            <div class="px-4 py-3 flex items-start gap-3 feature-row"><span class="text-[11px] font-semibold text-orange-600 flex-shrink-0 mt-0.5">03</span><div class="min-w-0"><p class="text-xs font-semibold text-neutral-900 mb-0.5">Disrupción del modelo</p><p class="text-[11px] text-neutral-500">USD 50/mes vs USD 200-500 nacionales. Primer año 100% bonificado.</p></div></div>
+                            <div class="px-4 py-3 flex items-start gap-3 feature-row">
+                                <span class="text-[11px] font-semibold text-orange-600 flex-shrink-0 mt-0.5">01</span>
+                                <div class="min-w-0"><p class="text-xs font-semibold text-neutral-900 mb-0.5">Hiperlocalización regional</p><p class="text-[11px] text-neutral-500">Algoritmos sobre normativa legal y dinámicas específicas de Misiones.</p></div>
+                            </div>
+                            <div class="px-4 py-3 flex items-start gap-3 feature-row">
+                                <span class="text-[11px] font-semibold text-orange-600 flex-shrink-0 mt-0.5">02</span>
+                                <div class="min-w-0"><p class="text-xs font-semibold text-neutral-900 mb-0.5">Integración vertical multirubro</p><p class="text-[11px] text-neutral-500">Tierra → construcción → mantenimiento. Ciclo completo en un flujo.</p></div>
+                            </div>
+                            <div class="px-4 py-3 flex items-start gap-3 feature-row">
+                                <span class="text-[11px] font-semibold text-orange-600 flex-shrink-0 mt-0.5">03</span>
+                                <div class="min-w-0"><p class="text-xs font-semibold text-neutral-900 mb-0.5">Disrupción del modelo</p><p class="text-[11px] text-neutral-500">USD 50/mes vs USD 200-500 nacionales. Primer año 100% bonificado.</p></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -181,60 +330,173 @@
         </section>
 
         <!-- ========== SLIDE 06: AGENTES IA ========== -->
-        <section class="slide" data-slide="6" data-label="Agentes de IA">
+        <section class="slide" data-slide="6" data-label="Agentes de IA" role="region" aria-label="Agentes de IA">
             <div class="h-screen flex flex-col justify-center bg-neutral-900 px-6 md:px-16 lg:px-24 overflow-hidden">
                 <div class="max-w-6xl w-full">
-                    <div class="s1 flex items-center gap-4 mb-6"><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">05</span><div class="w-8 h-px bg-orange-500"></div><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">Agentes de IA</span></div>
+                    <div class="s1 flex items-center gap-4 mb-6">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">05</span>
+                        <div class="w-8 h-px bg-orange-500"></div>
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">Agentes de IA</span>
+                    </div>
                     <h2 class="s2 text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] text-white mb-8 max-w-full">Cinco agentes <span class="text-orange-500">especializados</span></h2>
                     <div class="s3 grid grid-cols-1 md:grid-cols-2 gap-3">
-                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5"><div class="flex items-center gap-3 mb-2"><div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">R</span></div><div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Recomendador Inteligente</h3><p class="text-[10px] text-neutral-500 truncate">Scikit-learn · TensorFlow</p></div></div><p class="text-[11px] text-neutral-400 leading-relaxed">Filtrado colaborativo. Top 10 recomendaciones personalizadas con justificación semántica.</p></div>
-                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5"><div class="flex items-center gap-3 mb-2"><div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">V</span></div><div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Valuador Predictivo</h3><p class="text-[10px] text-neutral-500 truncate">Python · Pandas · Random Forest</p></div></div><p class="text-[11px] text-neutral-400 leading-relaxed">Regresión multivariable. Valor de mercado instantáneo con intervalo de confianza.</p></div>
-                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5"><div class="flex items-center gap-3 mb-2"><div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">C</span></div><div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Matching Constructivo</h3><p class="text-[10px] text-neutral-500 truncate">KNN · Reglas de negocio</p></div></div><p class="text-[11px] text-neutral-400 leading-relaxed">Empareja terrenos con las 3 constructoras óptimas según cobertura y especialización.</p></div>
-                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5"><div class="flex items-center gap-3 mb-2"><div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">H</span></div><div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Home Improvement</h3><p class="text-[10px] text-neutral-500 truncate">Filtrado predictivo · Segmentación</p></div></div><p class="text-[11px] text-neutral-400 leading-relaxed">Paquetes de refacción con precios dinámicos y descuentos de comercios locales.</p></div>
-                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5 md:col-span-2"><div class="flex items-center gap-3 mb-2"><div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">A</span></div><div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Asistente Cognitivo 24/7</h3><p class="text-[10px] text-neutral-500 truncate">GPT-4 · Llama 3 · RAG · LangChain</p></div></div><p class="text-[11px] text-neutral-400 leading-relaxed">Consultas en lenguaje natural 24hs, asesoría contractual y precalificación de leads.</p></div>
+                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">R</span></div>
+                                <div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Recomendador Inteligente</h3><p class="text-[10px] text-neutral-500 truncate">Scikit-learn · TensorFlow</p></div>
+                            </div>
+                            <p class="text-[11px] text-neutral-400 leading-relaxed">Filtrado colaborativo. Top 10 recomendaciones personalizadas con justificación semántica.</p>
+                        </div>
+                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">V</span></div>
+                                <div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Valuador Predictivo</h3><p class="text-[10px] text-neutral-500 truncate">Python · Pandas · Random Forest</p></div>
+                            </div>
+                            <p class="text-[11px] text-neutral-400 leading-relaxed">Regresión multivariable. Valor de mercado instantáneo con intervalo de confianza.</p>
+                        </div>
+                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">C</span></div>
+                                <div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Matching Constructivo</h3><p class="text-[10px] text-neutral-500 truncate">KNN · Reglas de negocio</p></div>
+                            </div>
+                            <p class="text-[11px] text-neutral-400 leading-relaxed">Empareja terrenos con las 3 constructoras óptimas según cobertura y especialización.</p>
+                        </div>
+                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">H</span></div>
+                                <div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Home Improvement</h3><p class="text-[10px] text-neutral-500 truncate">Filtrado predictivo · Segmentación</p></div>
+                            </div>
+                            <p class="text-[11px] text-neutral-400 leading-relaxed">Paquetes de refacción con precios dinámicos y descuentos de comercios locales.</p>
+                        </div>
+                        <div class="agent-card border border-neutral-800 rounded-lg p-4 md:p-5 md:col-span-2">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded bg-orange-600/10 border border-orange-600/30 flex items-center justify-center flex-shrink-0"><span class="text-xs font-semibold text-orange-500">A</span></div>
+                                <div class="min-w-0"><h3 class="text-xs md:text-sm font-semibold text-white">Asistente Cognitivo 24/7</h3><p class="text-[10px] text-neutral-500 truncate">GPT-4 · Llama 3 · RAG · LangChain</p></div>
+                            </div>
+                            <p class="text-[11px] text-neutral-400 leading-relaxed">Consultas en lenguaje natural 24hs, asesoría contractual y precalificación de leads.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ========== SLIDE 07: EFICIENCIA ========== -->
-        <section class="slide" data-slide="7" data-label="Eficiencia Operativa">
+        <section class="slide" data-slide="7" data-label="Eficiencia Operativa" role="region" aria-label="Eficiencia Operativa">
             <div class="h-screen flex flex-col justify-center bg-white px-6 md:px-16 lg:px-24 overflow-hidden">
                 <div class="max-w-6xl w-full">
-                    <div class="s1 flex items-center gap-4 mb-6"><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">06</span><div class="w-8 h-px bg-orange-600"></div><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Eficiencia Operativa</span></div>
+                    <div class="s1 flex items-center gap-4 mb-6">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">06</span>
+                        <div class="w-8 h-px bg-orange-600"></div>
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Eficiencia Operativa</span>
+                    </div>
                     <h2 class="s2 text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] mb-8 max-w-full">Antes vs. <span class="text-orange-600">Después</span> con IA</h2>
                     <div class="s3 grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                        <div class="border border-neutral-200 rounded-lg overflow-hidden"><div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between"><span class="text-xs font-semibold text-neutral-900">Búsqueda de inmuebles</span><i data-lucide="search" class="w-3.5 h-3.5 text-neutral-400"></i></div><div class="p-4"><div class="flex items-end gap-3 mb-3"><div class="text-center flex-1"><span class="block text-[10px] text-neutral-400 mb-0.5">Antes</span><span class="block text-xl md:text-2xl font-semibold text-neutral-300">4-6 hs</span></div><i data-lucide="arrow-right" class="w-4 h-4 text-orange-600 mb-1 flex-shrink-0"></i><div class="text-center flex-1"><span class="block text-[10px] text-orange-600 mb-0.5 font-semibold">Con IA</span><span class="block text-xl md:text-2xl font-semibold text-orange-600">5 min</span></div></div><div class="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden"><div class="h-full accent-bar rounded-full" style="width:98%"></div></div></div></div>
-                        <div class="border border-neutral-200 rounded-lg overflow-hidden"><div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between"><span class="text-xs font-semibold text-neutral-900">Tasación y valuación</span><i data-lucide="calculator" class="w-3.5 h-3.5 text-neutral-400"></i></div><div class="p-4"><div class="flex items-end gap-3 mb-3"><div class="text-center flex-1"><span class="block text-[10px] text-neutral-400 mb-0.5">Antes</span><span class="block text-xl md:text-2xl font-semibold text-neutral-300">3-5 días</span></div><i data-lucide="arrow-right" class="w-4 h-4 text-orange-600 mb-1 flex-shrink-0"></i><div class="text-center flex-1"><span class="block text-[10px] text-orange-600 mb-0.5 font-semibold">Con IA</span><span class="block text-xl md:text-2xl font-semibold text-orange-600">Instant.</span></div></div><div class="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden"><div class="h-full accent-bar rounded-full" style="width:100%"></div></div></div></div>
-                        <div class="border border-neutral-200 rounded-lg overflow-hidden"><div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between"><span class="text-xs font-semibold text-neutral-900">Matching terreno-proyecto</span><i data-lucide="git-merge" class="w-3.5 h-3.5 text-neutral-400"></i></div><div class="p-4"><div class="flex items-end gap-3 mb-3"><div class="text-center flex-1"><span class="block text-[10px] text-neutral-400 mb-0.5">Antes</span><span class="block text-xl md:text-2xl font-semibold text-neutral-300">2-3 sem</span></div><i data-lucide="arrow-right" class="w-4 h-4 text-orange-600 mb-1 flex-shrink-0"></i><div class="text-center flex-1"><span class="block text-[10px] text-orange-600 mb-0.5 font-semibold">Con IA</span><span class="block text-xl md:text-2xl font-semibold text-orange-600">2 hs</span></div></div><div class="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden"><div class="h-full accent-bar rounded-full" style="width:95%"></div></div></div></div>
-                        <div class="border border-neutral-200 rounded-lg overflow-hidden"><div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between"><span class="text-xs font-semibold text-neutral-900">Conversión refacciones</span><i data-lucide="trending-up" class="w-3.5 h-3.5 text-neutral-400"></i></div><div class="p-4"><div class="flex items-end gap-3 mb-3"><div class="text-center flex-1"><span class="block text-[10px] text-neutral-400 mb-0.5">Antes</span><span class="block text-xl md:text-2xl font-semibold text-neutral-300">1%</span></div><i data-lucide="arrow-right" class="w-4 h-4 text-orange-600 mb-1 flex-shrink-0"></i><div class="text-center flex-1"><span class="block text-[10px] text-orange-600 mb-0.5 font-semibold">Con IA</span><span class="block text-xl md:text-2xl font-semibold text-orange-600">15%</span></div></div><div class="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden"><div class="h-full accent-bar rounded-full" style="width:85%"></div></div></div></div>
+                        <div class="border border-neutral-200 rounded-lg overflow-hidden">
+                            <div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-neutral-900">Búsqueda de inmuebles</span>
+                                <i data-lucide="search" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex items-end gap-3 mb-3">
+                                    <div class="text-center flex-1"><span class="block text-[10px] text-neutral-400 mb-0.5">Antes</span><span class="block text-xl md:text-2xl font-semibold text-neutral-300">4-6 hs</span></div>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 text-orange-600 mb-1 flex-shrink-0"></i>
+                                    <div class="text-center flex-1"><span class="block text-[10px] text-orange-600 mb-0.5 font-semibold">Con IA</span><span class="block text-xl md:text-2xl font-semibold text-orange-600">5 min</span></div>
+                                </div>
+                                <div class="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden"><div class="h-full accent-bar rounded-full" style="width:98%"></div></div>
+                            </div>
+                        </div>
+                        <div class="border border-neutral-200 rounded-lg overflow-hidden">
+                            <div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-neutral-900">Tasación y valuación</span>
+                                <i data-lucide="calculator" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex items-end gap-3 mb-3">
+                                    <div class="text-center flex-1"><span class="block text-[10px] text-neutral-400 mb-0.5">Antes</span><span class="block text-xl md:text-2xl font-semibold text-neutral-300">3-5 días</span></div>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 text-orange-600 mb-1 flex-shrink-0"></i>
+                                    <div class="text-center flex-1"><span class="block text-[10px] text-orange-600 mb-0.5 font-semibold">Con IA</span><span class="block text-xl md:text-2xl font-semibold text-orange-600">Instant.</span></div>
+                                </div>
+                                <div class="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden"><div class="h-full accent-bar rounded-full" style="width:100%"></div></div>
+                            </div>
+                        </div>
+                        <div class="border border-neutral-200 rounded-lg overflow-hidden">
+                            <div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-neutral-900">Matching terreno-proyecto</span>
+                                <i data-lucide="git-merge" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex items-end gap-3 mb-3">
+                                    <div class="text-center flex-1"><span class="block text-[10px] text-neutral-400 mb-0.5">Antes</span><span class="block text-xl md:text-2xl font-semibold text-neutral-300">2-3 sem</span></div>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 text-orange-600 mb-1 flex-shrink-0"></i>
+                                    <div class="text-center flex-1"><span class="block text-[10px] text-orange-600 mb-0.5 font-semibold">Con IA</span><span class="block text-xl md:text-2xl font-semibold text-orange-600">2 hs</span></div>
+                                </div>
+                                <div class="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden"><div class="h-full accent-bar rounded-full" style="width:95%"></div></div>
+                            </div>
+                        </div>
+                        <div class="border border-neutral-200 rounded-lg overflow-hidden">
+                            <div class="px-4 py-2.5 bg-neutral-50 border-b border-neutral-200 flex items-center justify-between">
+                                <span class="text-xs font-semibold text-neutral-900">Conversión refacciones</span>
+                                <i data-lucide="trending-up" class="w-3.5 h-3.5 text-neutral-400"></i>
+                            </div>
+                            <div class="p-4">
+                                <div class="flex items-end gap-3 mb-3">
+                                    <div class="text-center flex-1"><span class="block text-[10px] text-neutral-400 mb-0.5">Antes</span><span class="block text-xl md:text-2xl font-semibold text-neutral-300">1%</span></div>
+                                    <i data-lucide="arrow-right" class="w-4 h-4 text-orange-600 mb-1 flex-shrink-0"></i>
+                                    <div class="text-center flex-1"><span class="block text-[10px] text-orange-600 mb-0.5 font-semibold">Con IA</span><span class="block text-xl md:text-2xl font-semibold text-orange-600">15%</span></div>
+                                </div>
+                                <div class="w-full h-1.5 bg-neutral-100 rounded-full overflow-hidden"><div class="h-full accent-bar rounded-full" style="width:85%"></div></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ========== SLIDE 08: CRONOGRAMA ========== -->
-        <section class="slide" data-slide="8" data-label="Cronograma">
+        <section class="slide" data-slide="8" data-label="Cronograma" role="region" aria-label="Cronograma">
             <div class="h-screen flex flex-col justify-center bg-neutral-50 px-6 md:px-16 lg:px-24 overflow-hidden">
                 <div class="max-w-6xl w-full">
-                    <div class="s1 flex items-center gap-4 mb-6"><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">07</span><div class="w-8 h-px bg-orange-600"></div><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Cronograma</span></div>
+                    <div class="s1 flex items-center gap-4 mb-6">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">07</span>
+                        <div class="w-8 h-px bg-orange-600"></div>
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Cronograma</span>
+                    </div>
                     <h2 class="s2 text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] mb-8 max-w-full">Plan a <span class="text-orange-600">5 meses</span></h2>
                     <div class="s3 space-y-0">
-                        <div class="flex gap-3 md:gap-5 pb-1 relative"><div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-orange-600 flex items-center justify-center z-10"><i data-lucide="flag" class="w-3 h-3 text-white"></i></div><div class="w-px flex-1 bg-neutral-200 mt-1"></div></div><div class="pb-5 flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-orange-600">Jun 2026</span><span class="text-[9px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-semibold">Hackathon</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 1 — Diseño y prototipo</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Arquitectura, base de datos, interfaces y prototipo IA con RAG.</p></div></div>
-                        <div class="flex gap-3 md:gap-5 pb-1 relative"><div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center z-10"><span class="text-white text-[10px] font-semibold">2</span></div><div class="w-px flex-1 bg-neutral-200 mt-1"></div></div><div class="pb-5 flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-orange-600">Jul 2026</span><span class="text-[9px] text-neutral-400">4 sem</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 2 — MVP Operativo</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Buscador, 100 inmuebles indexados y chatbot estable.</p></div></div>
-                        <div class="flex gap-3 md:gap-5 pb-1 relative"><div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center z-10"><span class="text-white text-[10px] font-semibold">3</span></div><div class="w-px flex-1 bg-neutral-200 mt-1"></div></div><div class="pb-5 flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-orange-600">Ago 2026</span><span class="text-[9px] text-neutral-400">4 sem</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 3 — Núcleo de IA Core</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Entrenamiento de Agent R y Agent V.</p></div></div>
-                        <div class="flex gap-3 md:gap-5 pb-1 relative"><div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-neutral-400 flex items-center justify-center z-10"><span class="text-white text-[10px] font-semibold">4</span></div><div class="w-px flex-1 bg-neutral-200 mt-1"></div></div><div class="pb-5 flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-neutral-400">Sep-Oct 2026</span><span class="text-[9px] text-neutral-400">8 sem</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 4 — Módulos + Mobile</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Agent C, Agent H y apps Flutter.</p></div></div>
-                        <div class="flex gap-3 md:gap-5 relative"><div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-neutral-300 flex items-center justify-center z-10"><span class="text-neutral-600 text-[10px] font-semibold">5</span></div></div><div class="flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-neutral-400">Nov 2026</span><span class="text-[9px] text-neutral-400">4 sem</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 5 — Lanzamiento oficial</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Auditorías, pruebas y Black Friday Inmobiliario con 200 agencias.</p></div></div>
+                        <div class="flex gap-3 md:gap-5 pb-1 relative">
+                            <div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-orange-600 flex items-center justify-center z-10"><i data-lucide="flag" class="w-3 h-3 text-white"></i></div><div class="w-px flex-1 bg-neutral-200 mt-1"></div></div>
+                            <div class="pb-5 flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-orange-600">Jun 2026</span><span class="text-[9px] bg-green-100 text-green-700 px-1.5 py-0.5 rounded font-semibold">Hackathon</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 1 — Diseño y prototipo</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Arquitectura, base de datos, interfaces y prototipo IA con RAG.</p></div>
+                        </div>
+                        <div class="flex gap-3 md:gap-5 pb-1 relative">
+                            <div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center z-10"><span class="text-white text-[10px] font-semibold">2</span></div><div class="w-px flex-1 bg-neutral-200 mt-1"></div></div>
+                            <div class="pb-5 flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-orange-600">Jul 2026</span><span class="text-[9px] text-neutral-400">4 sem</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 2 — MVP Operativo</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Buscador, 100 inmuebles indexados y chatbot estable.</p></div>
+                        </div>
+                        <div class="flex gap-3 md:gap-5 pb-1 relative">
+                            <div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-neutral-900 flex items-center justify-center z-10"><span class="text-white text-[10px] font-semibold">3</span></div><div class="w-px flex-1 bg-neutral-200 mt-1"></div></div>
+                            <div class="pb-5 flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-orange-600">Ago 2026</span><span class="text-[9px] text-neutral-400">4 sem</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 3 — Núcleo de IA Core</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Entrenamiento de Agent R y Agent V.</p></div>
+                        </div>
+                        <div class="flex gap-3 md:gap-5 pb-1 relative">
+                            <div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-neutral-400 flex items-center justify-center z-10"><span class="text-white text-[10px] font-semibold">4</span></div><div class="w-px flex-1 bg-neutral-200 mt-1"></div></div>
+                            <div class="pb-5 flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-neutral-400">Sep-Oct 2026</span><span class="text-[9px] text-neutral-400">8 sem</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 4 — Módulos + Mobile</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Agent C, Agent H y apps Flutter.</p></div>
+                        </div>
+                        <div class="flex gap-3 md:gap-5 relative">
+                            <div class="flex flex-col items-center flex-shrink-0"><div class="w-7 h-7 rounded-full bg-neutral-300 flex items-center justify-center z-10"><span class="text-neutral-600 text-[10px] font-semibold">5</span></div></div>
+                            <div class="flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5"><span class="text-[10px] md:text-[11px] font-semibold text-neutral-400">Nov 2026</span><span class="text-[9px] text-neutral-400">4 sem</span></div><h3 class="text-xs md:text-sm font-semibold text-neutral-900">Hito 5 — Lanzamiento oficial</h3><p class="text-[11px] text-neutral-500 leading-relaxed">Auditorías, pruebas y Black Friday Inmobiliario con 200 agencias.</p></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ========== SLIDE 09: IMPACTO ========== -->
-        <section class="slide" data-slide="9" data-label="Impacto">
+        <section class="slide" data-slide="9" data-label="Impacto" role="region" aria-label="Impacto Esperado">
             <div class="h-screen flex flex-col justify-center bg-neutral-900 px-6 md:px-16 lg:px-24 overflow-hidden">
                 <div class="max-w-6xl w-full">
-                    <div class="s1 flex items-center gap-4 mb-6"><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">08</span><div class="w-8 h-px bg-orange-500"></div><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">Impacto Esperado</span></div>
+                    <div class="s1 flex items-center gap-4 mb-6">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-500">08</span>
+                        <div class="w-8 h-px bg-orange-500"></div>
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-500">Impacto Esperado</span>
+                    </div>
                     <h2 class="s2 text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] text-white mb-8 max-w-full">KPIs del <span class="text-orange-500">Año 1</span></h2>
                     <div class="s3 grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
                         <div class="border border-neutral-800 rounded-lg p-4 text-center"><span class="block text-2xl md:text-3xl font-semibold text-white mb-0.5">200<span class="text-orange-500">+</span></span><p class="text-[10px] md:text-xs text-neutral-400">Inmobiliarias</p><p class="text-[9px] text-neutral-600 mt-0.5">67% del universo</p></div>
@@ -245,9 +507,18 @@
                     <div class="s4 border border-neutral-800 rounded-lg overflow-hidden">
                         <div class="px-4 py-2.5 border-b border-neutral-800"><span class="text-[10px] md:text-[11px] font-semibold uppercase tracking-[0.15em] text-neutral-500">Impacto social y ambiental</span></div>
                         <div class="divide-y divide-neutral-800">
-                            <div class="px-4 py-3 flex items-start gap-3"><div class="w-6 h-6 rounded bg-green-900/30 flex items-center justify-center flex-shrink-0"><i data-lucide="home" class="w-3 h-3 text-green-400"></i></div><div class="min-w-0"><p class="text-xs font-medium text-white mb-0.5">Acceso a vivienda</p><p class="text-[11px] text-neutral-400 leading-relaxed">De 6 semanas a 3 días hábiles mediante emparejamiento predictivo.</p></div></div>
-                            <div class="px-4 py-3 flex items-start gap-3"><div class="w-6 h-6 rounded bg-blue-900/30 flex items-center justify-center flex-shrink-0"><i data-lucide="wifi" class="w-3 h-3 text-blue-400"></i></div><div class="min-w-0"><p class="text-xs font-medium text-white mb-0.5">Brecha digital</p><p class="text-[11px] text-neutral-400 leading-relaxed">Digitalización del sector del 18% al 90%.</p></div></div>
-                            <div class="px-4 py-3 flex items-start gap-3"><div class="w-6 h-6 rounded bg-emerald-900/30 flex items-center justify-center flex-shrink-0"><i data-lucide="leaf" class="w-3 h-3 text-emerald-400"></i></div><div class="min-w-0"><p class="text-xs font-medium text-white mb-0.5">Huella de carbono</p><p class="text-[11px] text-neutral-400 leading-relaxed">−35% recorridos innecesarios. ~500.000 km ahorrados/año.</p></div></div>
+                            <div class="px-4 py-3 flex items-start gap-3">
+                                <div class="w-6 h-6 rounded bg-green-900/30 flex items-center justify-center flex-shrink-0"><i data-lucide="home" class="w-3 h-3 text-green-400"></i></div>
+                                <div class="min-w-0"><p class="text-xs font-medium text-white mb-0.5">Acceso a vivienda</p><p class="text-[11px] text-neutral-400 leading-relaxed">De 6 semanas a 3 días hábiles mediante emparejamiento predictivo.</p></div>
+                            </div>
+                            <div class="px-4 py-3 flex items-start gap-3">
+                                <div class="w-6 h-6 rounded bg-blue-900/30 flex items-center justify-center flex-shrink-0"><i data-lucide="wifi" class="w-3 h-3 text-blue-400"></i></div>
+                                <div class="min-w-0"><p class="text-xs font-medium text-white mb-0.5">Brecha digital</p><p class="text-[11px] text-neutral-400 leading-relaxed">Digitalización del sector del 18% al 90%.</p></div>
+                            </div>
+                            <div class="px-4 py-3 flex items-start gap-3">
+                                <div class="w-6 h-6 rounded bg-emerald-900/30 flex items-center justify-center flex-shrink-0"><i data-lucide="leaf" class="w-3 h-3 text-emerald-400"></i></div>
+                                <div class="min-w-0"><p class="text-xs font-medium text-white mb-0.5">Huella de carbono</p><p class="text-[11px] text-neutral-400 leading-relaxed">−35% recorridos innecesarios. ~500.000 km ahorrados/año.</p></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -255,48 +526,73 @@
         </section>
 
         <!-- ========== SLIDE 10: EQUIPO ========== -->
-        <section class="slide" data-slide="10" data-label="Equipo">
+        <section class="slide" data-slide="10" data-label="Equipo" role="region" aria-label="Equipo">
             <div class="h-screen flex flex-col justify-center bg-white px-6 md:px-16 lg:px-24 overflow-hidden">
                 <div class="max-w-6xl w-full">
-                    <div class="s1 flex items-center gap-4 mb-6"><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">09</span><div class="w-8 h-px bg-orange-600"></div><span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Equipo</span></div>
+                    <div class="s1 flex items-center gap-4 mb-6">
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-orange-600">09</span>
+                        <div class="w-8 h-px bg-orange-600"></div>
+                        <span class="text-[11px] font-semibold uppercase tracking-[0.2em] text-neutral-400">Equipo</span>
+                    </div>
                     <h2 class="s2 text-2xl md:text-4xl font-semibold tracking-[-0.03em] leading-[1.1] mb-8 max-w-full">Las personas detrás de <span class="text-orange-600">CIM IA</span></h2>
-                    <div class="s3 grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+                    <div class="s3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
                         <!-- Mariano -->
                         <div class="flex items-center gap-3 border border-neutral-200 rounded-lg p-3 hover:border-orange-200 transition-colors">
-                            <img src="mariano.png" alt="Mariano Rodríguez de Olivera" class="w-9 h-9 rounded-full object-cover flex-shrink-0"/>
-                            <div class="flex-1 min-w-0"><h3 class="text-xs font-semibold text-neutral-900 truncate">Mariano S. Rodríguez de Olivera</h3><p class="text-[10px] text-neutral-500 truncate">Lic. · Subcomisario · Jefe de Drones</p></div>
+                            <img src="mariano.png" alt="Mariano Rodríguez de Olivera" class="rounded-full object-cover flex-shrink-0" style="width: 2cm; height: 2cm;"/>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-xs font-semibold text-neutral-900 truncate">Mariano S. Rodríguez de Olivera</h3>
+                                <p class="text-[10px] text-neutral-500 truncate">Lic. · Subcomisario · Jefe de Drones</p>
+                            </div>
                             <span class="text-[9px] bg-orange-50 text-orange-600 px-1.5 py-0.5 rounded font-semibold flex-shrink-0">Presentador</span>
                         </div>
                         <!-- Donatienne -->
                         <div class="flex items-center gap-3 border border-neutral-200 rounded-lg p-3 hover:border-orange-200 transition-colors">
-                            <img src="mulka.png" alt="Donatienne Misael Mulka" class="w-9 h-9 rounded-full object-cover flex-shrink-0"/>
-                            <div class="flex-1 min-w-0"><h3 class="text-xs font-semibold text-neutral-900 truncate">Donatienne Misael Mulka</h3><p class="text-[10px] text-neutral-500 truncate">Empresario · Líder Técnico Electrónica</p></div>
+                            <img src="mulka.png" alt="Donatienne Misael Mulka" class="rounded-full object-cover flex-shrink-0" style="width: 2cm; height: 2cm;"/>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-xs font-semibold text-neutral-900 truncate">Donatienne Misael Mulka</h3>
+                                <p class="text-[10px] text-neutral-500 truncate">Empresario · Líder Técnico Electrónica</p>
+                            </div>
                             <span class="text-[9px] bg-neutral-100 text-neutral-600 px-1.5 py-0.5 rounded font-semibold flex-shrink-0">PM</span>
                         </div>
                         <!-- Mauricio -->
                         <div class="flex items-center gap-3 border border-neutral-200 rounded-lg p-3 hover:border-orange-200 transition-colors">
-                            <img src="https://picsum.photos/mauricio-duarte/100/100" alt="Mauricio Duarte" class="w-9 h-9 rounded-full object-cover flex-shrink-0"/>
-                            <div class="flex-1 min-w-0"><h3 class="text-xs font-semibold text-neutral-900 truncate">Mauricio Duarte</h3><p class="text-[10px] text-neutral-500 truncate">Ciberseguridad y Servidores Web</p></div>
+                            <img src="mauricio.png" alt="Mauricio Duarte" class="rounded-full object-cover flex-shrink-0" style="width: 2cm; height: 2cm;"/>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-xs font-semibold text-neutral-900 truncate">Mauricio Duarte</h3>
+                                <p class="text-[10px] text-neutral-500 truncate">Ciberseguridad y Servidores Web</p>
+                            </div>
                         </div>
                         <!-- Franco -->
                         <div class="flex items-center gap-3 border border-neutral-200 rounded-lg p-3 hover:border-orange-200 transition-colors">
-                            <img src="FB.png" alt="Franco Benítez" class="w-9 h-9 rounded-full object-cover flex-shrink-0"/>
-                            <div class="flex-1 min-w-0"><h3 class="text-xs font-semibold text-neutral-900 truncate">Franco Benítez</h3><p class="text-[10px] text-neutral-500 truncate">Docente Escuela de Innovación · Dev Web</p></div>
+                            <img src="FB.png" alt="Franco Benítez" class="rounded-full object-cover flex-shrink-0" style="width: 2cm; height: 2cm;"/>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-xs font-semibold text-neutral-900 truncate">Franco Benítez</h3>
+                                <p class="text-[10px] text-neutral-500 truncate">Docente Escuela de Innovación · Dev Web</p>
+                            </div>
                         </div>
                         <!-- José -->
                         <div class="flex items-center gap-3 border border-neutral-200 rounded-lg p-3 hover:border-orange-200 transition-colors">
-                            <img src="august.png" alt="José Augusto Pujato" class="w-9 h-9 rounded-full object-cover flex-shrink-0"/>
-                            <div class="flex-1 min-w-0"><h3 class="text-xs font-semibold text-neutral-900 truncate">José Augusto Pujato</h3><p class="text-[10px] text-neutral-500 truncate">Automatización y Control Industrial</p></div>
+                            <img src="august.png" alt="José Augusto Pujato" class="rounded-full object-cover flex-shrink-0" style="width: 2cm; height: 2cm;"/>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-xs font-semibold text-neutral-900 truncate">José Augusto Pujato</h3>
+                                <p class="text-[10px] text-neutral-500 truncate">Automatización y Control Industrial</p>
+                            </div>
                         </div>
                         <!-- Gonzalo -->
                         <div class="flex items-center gap-3 border border-neutral-200 rounded-lg p-3 hover:border-orange-200 transition-colors">
-                            <img src="https://picsum.photos/gonzalo-deljarano/100/100" alt="Gonzalo Deljarano" class="w-9 h-9 rounded-full object-cover flex-shrink-0"/>
-                            <div class="flex-1 min-w-0"><h3 class="text-xs font-semibold text-neutral-900 truncate">Gonzalo Deljarano</h3><p class="text-[10px] text-neutral-500 truncate">Abogado · Creador de Contenido</p></div>
+                            <img src="gonzalo.png" alt="Gonzalo Deljarano" class="rounded-full object-cover flex-shrink-0" style="width: 2cm; height: 2cm;"/>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-xs font-semibold text-neutral-900 truncate">Gonzalo Deljarano</h3>
+                                <p class="text-[10px] text-neutral-500 truncate">Abogado · Creador de Contenido</p>
+                            </div>
                         </div>
                         <!-- Sandra -->
-                        <div class="flex items-center gap-3 border border-neutral-200 rounded-lg p-3 hover:border-orange-200 transition-colors md:col-span-2 max-w-md md:max-w-none md:mx-auto md:w-1/2">
-                            <img src="san.png" alt="Sandra Beatriz Zagorskiy" class="w-9 h-9 rounded-full object-cover flex-shrink-0"/>
-                            <div class="flex-1 min-w-0"><h3 class="text-xs font-semibold text-neutral-900 truncate">Sandra Beatriz Zagorskiy</h3><p class="text-[10px] text-neutral-500 truncate">Adm. de Empresas · Gestión Económica</p></div>
+                        <div class="flex items-center gap-3 border border-neutral-200 rounded-lg p-3 hover:border-orange-200 transition-colors">
+                            <img src="san.png" alt="Sandra Beatriz Zagorskiy" class="rounded-full object-cover flex-shrink-0" style="width: 2cm; height: 2cm;"/>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="text-xs font-semibold text-neutral-900 truncate">Sandra Beatriz Zagorskiy</h3>
+                                <p class="text-[10px] text-neutral-500 truncate">Adm. de Empresas · Gestión Económica</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -304,7 +600,7 @@
         </section>
 
         <!-- ========== SLIDE 11: CIERRE ========== -->
-        <section class="slide" data-slide="11" data-label="Cierre">
+        <section class="slide" data-slide="11" data-label="Cierre" role="region" aria-label="Cierre">
             <div class="h-screen flex flex-col justify-center items-center bg-neutral-900 relative overflow-hidden px-6">
                 <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;"></div>
                 <div class="relative z-10 text-center max-w-4xl w-full">
@@ -314,15 +610,23 @@
                     <h2 class="s2 text-3xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.04em] leading-[0.9] text-white mb-5">La transformación <span class="text-orange-500">digital</span> del sector inmobiliario de Misiones</h2>
                     <div class="s3 w-14 h-[3px] accent-bar mx-auto mb-6 rounded-full"></div>
                     <p class="s4 text-sm md:text-base text-neutral-400 font-light leading-relaxed max-w-2xl mx-auto mb-8 px-2">+25% operaciones globales · −60% tiempos de procesamiento · 5 agentes de IA · Una plataforma</p>
-                    <div class="s5 inline-flex items-center gap-4 md:gap-6 border border-neutral-700 rounded-lg px-5 md:px-8 py-3 md:py-4 mb-10">
-                        <div class="text-center"><span class="block text-lg md:text-xl font-semibold text-white">9.3</span><span class="text-[9px] md:text-[10px] text-neutral-500 uppercase tracking-wider">Idea</span></div>
-                        <div class="w-px h-8 bg-neutral-700"></div>
-                        <div class="text-center"><span class="block text-lg md:text-xl font-semibold text-white">9.0</span><span class="text-[9px] md:text-[10px] text-neutral-500 uppercase tracking-wider">Innovación</span></div>
-                        <div class="w-px h-8 bg-neutral-700"></div>
-                        <div class="text-center"><span class="block text-lg md:text-xl font-semibold text-white">8.5</span><span class="text-[9px] md:text-[10px] text-neutral-500 uppercase tracking-wider">Implementación</span></div>
+                    <div class="s5 grid grid-cols-3 gap-3 md:gap-6 max-w-md mx-auto mb-10">
+                        <div class="border border-neutral-700 rounded-lg p-3 md:p-4 text-center">
+                            <span class="block text-lg md:text-xl font-semibold text-orange-500">5x</span>
+                            <span class="text-[9px] md:text-[10px] text-neutral-500 uppercase tracking-wider">Más rápido</span>
+                        </div>
+                        <div class="border border-neutral-700 rounded-lg p-3 md:p-4 text-center">
+                            <span class="block text-lg md:text-xl font-semibold text-orange-500">−60%</span>
+                            <span class="text-[9px] md:text-[10px] text-neutral-500 uppercase tracking-wider">Tiempo</span>
+                        </div>
+                        <div class="border border-neutral-700 rounded-lg p-3 md:p-4 text-center">
+                            <span class="block text-lg md:text-xl font-semibold text-orange-500">+25%</span>
+                            <span class="text-[9px] md:text-[10px] text-neutral-500 uppercase tracking-wider">Operaciones</span>
+                        </div>
                     </div>
-                    <div class="s6 flex items-center justify-center">
-                        <a href="https://simia-mvp.vercel.app/" target="_blank" class="inline-flex items-center gap-2 bg-orange-600 text-white px-8 py-3.5 rounded text-sm font-medium hover:bg-orange-500 transition-colors">Ver plataforma <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                    <div class="s6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <a href="https://simia-mvp.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-orange-600 text-white px-8 py-3.5 rounded text-sm font-medium hover:bg-orange-500 transition-colors">Ver plataforma <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+                        <a href="mailto:contacto@cimia.com.ar" class="inline-flex items-center gap-2 border border-neutral-600 text-neutral-300 px-6 py-3.5 rounded text-sm font-medium hover:border-neutral-400 hover:text-white transition-colors">Contacto <i data-lucide="mail" class="w-4 h-4"></i></a>
                     </div>
                 </div>
                 <div class="absolute bottom-14 left-6 text-[10px] font-mono tracking-widest text-neutral-700 hidden md:block">CIM_IA_2026</div>
@@ -334,16 +638,20 @@
 
     <script>
         lucide.createIcons();
+
         let current = 0;
         const slides = document.querySelectorAll('.slide');
         const total = slides.length;
         let locked = false;
+
         document.getElementById('totalSlides').textContent = String(total).padStart(2, '0');
+
         function updateUI() {
             document.getElementById('slideNum').textContent = String(current + 1).padStart(2, '0');
             document.getElementById('progressBar').style.width = `${((current + 1) / total) * 100}%`;
             document.getElementById('sectionLabel').textContent = slides[current].dataset.label || '';
         }
+
         function goToSlide(i) {
             if (locked || i === current || i < 0 || i >= total) return;
             locked = true;
@@ -353,19 +661,42 @@
             updateUI();
             setTimeout(() => { locked = false; }, 550);
         }
+
         function nextSlide() { goToSlide(current + 1); }
         function prevSlide() { goToSlide(current - 1); }
+
         document.addEventListener('keydown', e => {
             if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); nextSlide(); }
             else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prevSlide(); }
             else if (e.key === 'Home') { e.preventDefault(); goToSlide(0); }
             else if (e.key === 'End') { e.preventDefault(); goToSlide(total - 1); }
         });
+
         let wheelLock = false;
-        document.addEventListener('wheel', e => { if (wheelLock) return; wheelLock = true; if (e.deltaY > 25) nextSlide(); else if (e.deltaY < -25) prevSlide(); setTimeout(() => { wheelLock = false; }, 700); }, { passive: true });
+        document.addEventListener('wheel', e => {
+            if (wheelLock) return;
+            wheelLock = true;
+            if (e.deltaY > 25) nextSlide();
+            else if (e.deltaY < -25) prevSlide();
+            setTimeout(() => { wheelLock = false; }, 700);
+        }, { passive: true });
+
         let ty = 0, tx = 0;
-        document.addEventListener('touchstart', e => { ty = e.touches[0].clientY; tx = e.touches[0].clientX; }, { passive: true });
-        document.addEventListener('touchend', e => { const dy = ty - e.changedTouches[0].clientY, dx = tx - e.changedTouches[0].clientX; if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 50) { dy > 0 ? nextSlide() : prevSlide(); } else if (Math.abs(dx) > 50) { dx > 0 ? nextSlide() : prevSlide(); } }, { passive: true });
+        document.addEventListener('touchstart', e => {
+            ty = e.touches[0].clientY;
+            tx = e.touches[0].clientX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', e => {
+            const dy = ty - e.changedTouches[0].clientY;
+            const dx = tx - e.changedTouches[0].clientX;
+            if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 60) {
+                dy > 0 ? nextSlide() : prevSlide();
+            } else if (Math.abs(dx) > 60) {
+                dx > 0 ? nextSlide() : prevSlide();
+            }
+        }, { passive: true });
+
         updateUI();
     </script>
 </body>
