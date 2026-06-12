@@ -6,9 +6,9 @@
     <title>CIM IA - Presentación Corporativa</title>
     <style>
         :root {
-            --primary: #0f172a; /* Azul oscuro corporativo */
-            --secondary: #0ea5e9; /* Azul tecnológico/IA */
-            --accent: #10b981; /* Verde Misiones/Éxito */
+            --primary: #0f172a;
+            --secondary: #0ea5e9;
+            --accent: #10b981;
             --text-light: #f8fafc;
             --text-dark: #1e293b;
             --bg-slide: #ffffff;
@@ -22,11 +22,10 @@
         }
 
         html, body {
-            overflow: hidden; /* Evita el scroll vertical de la página */
+            overflow: hidden; /* Bloquea el scroll nativo */
             background-color: var(--primary);
         }
 
-        /* Contenedor General de la Presentación */
         #presentation-wrapper {
             position: relative;
             width: 100vw;
@@ -34,14 +33,12 @@
             overflow: hidden;
         }
 
-        /* Pista de las Diapositivas (Horizontal) */
         .slide-track {
             display: flex;
-            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); /* Efecto de deslizamiento suave */
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
             height: 100%;
         }
 
-        /* Cada Slide */
         .slide {
             min-width: 100vw;
             height: 100vh;
@@ -52,7 +49,7 @@
             padding: 4rem 5rem;
             background-color: var(--bg-slide);
             position: relative;
-            overflow-y: auto; /* Por si el contenido es más largo que la pantalla */
+            overflow: hidden;
         }
 
         .slide:nth-child(even) {
@@ -71,7 +68,6 @@
         h3 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--secondary); }
         p { font-size: 1.2rem; line-height: 1.6; margin-bottom: 1.5rem; }
 
-        /* Grids y Layouts */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
         .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2rem; }
@@ -94,7 +90,6 @@
             border-radius: 0 12px 12px 0;
         }
 
-        /* Badges y Destacados */
         .badge {
             background-color: var(--secondary);
             color: white;
@@ -106,86 +101,37 @@
             margin-bottom: 1rem;
         }
 
-        .stat-box {
-            text-align: center;
-            padding: 1.5rem;
-        }
+        .stat-box { text-align: center; padding: 1.5rem; }
+        .stat-number { font-size: 3rem; font-weight: 800; color: var(--accent); display: block; }
+        .stat-label { font-size: 1rem; font-weight: 500; }
 
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--accent);
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        ul { list-style: none; }
-        ul li { margin-bottom: 1rem; font-size: 1.1rem; padding-left: 1.5rem; position: relative; }
-        ul li::before {
-            content: '✓';
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        /* Portada Especial */
         .cover-title { font-size: 4rem; background: linear-gradient(90deg, var(--secondary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .cover-subtitle { font-size: 1.8rem; color: var(--text-light); margin-bottom: 3rem; }
         
-        /* Timeline */
         .timeline-item { border-left: 3px solid var(--secondary); padding-left: 1.5rem; margin-bottom: 2rem; position: relative; }
         .timeline-item::before { content: ''; position: absolute; left: -8px; top: 0; width: 13px; height: 13px; background-color: var(--accent); border-radius: 50%; }
 
-        /* Controles de Navegación */
-        .nav-controls {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 1rem;
-            z-index: 100;
-        }
-
-        .nav-btn {
-            background: rgba(255, 255, 255, 0.15);
+        /* Contador de Slides */
+        .slide-counter { 
+            position: fixed; 
+            bottom: 2rem; 
+            left: 2rem; 
+            color: rgba(255, 255, 255, 0.6); 
+            font-size: 1rem; 
+            font-weight: bold; 
+            z-index: 100; 
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-btn:hover {
-            background: var(--secondary);
-            border-color: var(--secondary);
-        }
-
-        .slide-counter {
-            position: fixed;
-            bottom: 2rem;
-            left: 2rem;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 1rem;
-            font-weight: bold;
-            z-index: 100;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
             h1 { font-size: 2.2rem; }
             .cover-title { font-size: 2.8rem; }
             .slide { padding: 2rem 1.5rem; }
-            .nav-controls { bottom: 1rem; right: 1rem; }
             .slide-counter { bottom: 1rem; left: 1rem; }
         }
     </style>
@@ -193,88 +139,45 @@
 <body>
 
     <div id="presentation-wrapper">
-        <!-- Pista que contiene todas las diapositivas en fila -->
         <div class="slide-track" id="slideTrack">
             
             <!-- DIAPOSITIVA 1: PORTADA -->
-            <section class="slide" style="background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);">
-                <div class="slide-content" style="text-align: center;">
-                    <span class="badge">Silicon Misiones - Hackathon 2026</span>
-                    <h1 class="cover-title">CIM IA</h1>
-                    <p class="cover-subtitle">Plataforma de Inteligencia Artificial para la Transformación del Sector Inmobiliario y Productivo de Misiones</p>
-                    <p style="font-size: 1.2rem; opacity: 0.8;">Cámara Inmobiliaria de Misiones | 11 de Junio de 2026</p>
-                </div>
-            </section>
+            <section class="slide" style="
+                background-color: #000000; 
+                background-image: url('https://z-cdn-media.chatglm.cn/files/fb9a2883-a520-42fa-8e30-1ff700c1e3e5.png?auth_key=1881232531-c0b0fc38ebaf48f7b50057f87804f494-0-805b7d538ce7281fab96a5bbdd3edce9'); 
+                background-size: contain; 
+                background-position: center; 
+                background-repeat: no-repeat;
+            "></section>
 
             <!-- DIAPOSITIVA 2: EL PROBLEMA -->
-            <section class="slide">
-                <div class="slide-content">
-                    <h2>El Problema</h2>
-                    <p>Un mercado operando al <strong>40% de su capacidad</strong>. El sector inmobiliario representa el 8% del PIB provincial y tracciona 15.000 puestos de trabajo.</p>
-                    <div class="grid-4">
-                        <div class="stat-box">
-                            <span class="stat-number">35%</span>
-                            <span class="stat-label">Transacciones perdidas por fragmentación</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number">68%</span>
-                            <span class="stat-label">Agencias pierden clientes por asimetría</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number">12h</span>
-                            <span class="stat-label">Gestión manual por operación vs 2h</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number">45%</span>
-                            <span class="stat-label">Parcelas urbanizadas ociosas</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <section class="slide" style="
+                background-color: #000000; 
+                background-image: url('https://z-cdn-media.chatglm.cn/files/1ac7951a-d5c5-4e56-808d-f7a0bfb28ac2.png?auth_key=1881230802-b2f3673e6f964988a726cc9e9e7e8f0c-0-bf5d79132e242aed407a24a2512eb0de'); 
+                background-size: contain; 
+                background-position: center; 
+                background-repeat: no-repeat;
+            "></section>
 
             <!-- DIAPOSITIVA 3: SOLUCIÓN -->
-            <section class="slide">
-                <div class="slide-content">
-                    <h2>Nuestra Solución</h2>
-                    <p>CIM IA: Un ecosistema B2B2C que unifica las 300 inmobiliarias de Misiones bajo un núcleo de inteligencia artificial múltiple.</p>
-                    <div class="grid-2">
-                        <div class="card-light">
-                            <h3>Integración Vertical</h3>
-                            <p>Conectamos terrenos ociosos con constructoras y propietarios con empresas de mejoras habitacionales en un solo flujo.</p>
-                        </div>
-                        <div class="card-light">
-                            <h3>Impacto Proyectado</h3>
-                            <p><strong>+25%</strong> en operaciones globales del sector.<br><strong>-60%</strong> en tiempos de búsqueda y procesamiento.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <section class="slide" style="
+                background-color: #000000; 
+                background-image: url('https://z-cdn-media.chatglm.cn/files/ccb20376-5848-4ff7-8c15-23fddb42390b.png?auth_key=1881229662-e8e245725f67429186c814565f5855fd-0-548f23d9e19ba45eee0f53a35f9dd97b'); 
+                background-size: contain; 
+                background-position: center; 
+                background-repeat: no-repeat;
+            "></section>
 
             <!-- DIAPOSITIVA 4: AGENTES DE IA -->
             <section class="slide" style="background: linear-gradient(135deg, var(--primary) 0%, #1e293b 100%);">
                 <div class="slide-content">
                     <h2 style="color: var(--text-light);">Core de Innovación: 5 Agentes IA</h2>
                     <div class="grid-3">
-                        <div class="card">
-                            <h3>🤖 Agent R</h3>
-                            <p><strong>Recomendador Inteligente</strong><br>TensorFlow & Filtrado Colaborativo. Top 10 propiedades personalizadas.</p>
-                        </div>
-                        <div class="card">
-                            <h3>📈 Agent V</h3>
-                            <p><strong>Tasador Predictivo</strong><br>Random Forest & Regresión. Valor de mercado instantáneo con alta confianza.</p>
-                        </div>
-                        <div class="card">
-                            <h3>🏗️ Agent C</h3>
-                            <p><strong>Matching Constructivo</strong><br>KNN & Reglas. Empareja terrenos con las constructoras óptimas.</p>
-                        </div>
-                        <div class="card">
-                            <h3>🔧 Agent H</h3>
-                            <p><strong>Home Improvement</strong><br>Segmentación dinámica. Paquetes de refacción con descensos progresivos.</p>
-                        </div>
-                        <div class="card" style="grid-column: span 2;">
-                            <h3>💬 Agent A</h3>
-                            <p><strong>Asistente Cognitivo 24/7</strong><br>LLM (GPT-4/Llama 3) + RAG. Asesoría en lenguaje natural y precalificación de leads las 24 horas.</p>
-                        </div>
+                        <div class="card"><h3>🤖 Agent R</h3><p><strong>Recomendador Inteligente</strong><br>TensorFlow & Filtrado Colaborativo. Top 10 propiedades personalizadas.</p></div>
+                        <div class="card"><h3>📈 Agent V</h3><p><strong>Tasador Predictivo</strong><br>Random Forest & Regresión. Valor de mercado instantáneo con alta confianza.</p></div>
+                        <div class="card"><h3>🏗️ Agent C</h3><p><strong>Matching Constructivo</strong><br>KNN & Reglas. Empareja terrenos con las constructoras óptimas.</p></div>
+                        <div class="card"><h3>🔧 Agent H</h3><p><strong>Home Improvement</strong><br>Segmentación dinámica. Paquetes de refacción con descensos progresivos.</p></div>
+                        <div class="card" style="grid-column: span 2;"><h3>💬 Agent A</h3><p><strong>Asistente Cognitivo 24/7</strong><br>LLM (GPT-4/Llama 3) + RAG. Asesoría en lenguaje natural y precalificación de leads las 24 horas.</p></div>
                     </div>
                 </div>
             </section>
@@ -284,14 +187,8 @@
                 <div class="slide-content">
                     <h2>Disrupción de Mercado</h2>
                     <div class="grid-2">
-                        <div class="card-light">
-                            <h3>Hiperlocalización</h3>
-                            <p>Algoritmos entrenados con normativa, coeficientes y dinámicas exclusivas de Misiones.</p>
-                        </div>
-                        <div class="card-light">
-                            <h3>Ciclo de Vida Completo</h3>
-                            <p>Única plataforma que une Tierra → Construcción → Venta → Mantenimiento.</p>
-                        </div>
+                        <div class="card-light"><h3>Hiperlocalización</h3><p>Algoritmos entrenados con normativa, coeficientes y dinámicas exclusivas de Misiones.</p></div>
+                        <div class="card-light"><h3>Ciclo de Vida Completo</h3><p>Única plataforma que une Tierra → Construcción → Venta → Mantenimiento.</p></div>
                     </div>
                     <div style="margin-top: 2rem; text-align: center; background: #f1f5f9; padding: 2rem; border-radius: 12px;">
                         <h3>Modelo de Precios</h3>
@@ -308,28 +205,13 @@
                     <h2>Hoja de Ruta 2026</h2>
                     <div class="grid-2">
                         <div>
-                            <div class="timeline-item">
-                                <h3>Junio - Hito 1</h3>
-                                <p>Hackathon: Prototipo funcional, Asistente IA con RAG.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h3>Julio - Hito 2</h3>
-                                <p>MVP Web, 100 inmuebles, estabilización chatbot.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h3>Agosto - Hito 3</h3>
-                                <p>Core IA: Agent R (Recomendador) y Agent V (Tasador).</p>
-                            </div>
+                            <div class="timeline-item"><h3>Junio - Hito 1</h3><p>Hackathon: Prototipo funcional, Asistente IA con RAG.</p></div>
+                            <div class="timeline-item"><h3>Julio - Hito 2</h3><p>MVP Web, 100 inmuebles, estabilización chatbot.</p></div>
+                            <div class="timeline-item"><h3>Agosto - Hito 3</h3><p>Core IA: Agent R (Recomendador) y Agent V (Tasador).</p></div>
                         </div>
                         <div>
-                            <div class="timeline-item">
-                                <h3>Sept-Oct - Hito 4</h3>
-                                <p>Módulos Verticales (Agent C y H) + App Móvil Flutter.</p>
-                            </div>
-                            <div class="timeline-item">
-                                <h3>Noviembre - Hito 5</h3>
-                                <p>Lanzamiento y Black Friday Inmobiliario con 200 agencias.</p>
-                            </div>
+                            <div class="timeline-item"><h3>Sept-Oct - Hito 4</h3><p>Módulos Verticales (Agent C y H) + App Móvil Flutter.</p></div>
+                            <div class="timeline-item"><h3>Noviembre - Hito 5</h3><p>Lanzamiento y Black Friday Inmobiliario con 200 agencias.</p></div>
                         </div>
                     </div>
                 </div>
@@ -340,36 +222,15 @@
                 <div class="slide-content">
                     <h2 style="color: var(--text-light);">Impacto Esperado (Año 1)</h2>
                     <div class="grid-3">
-                        <div class="stat-box">
-                            <span class="stat-number">3 días</span>
-                            <span class="stat-label" style="color: var(--text-light);">Búsqueda de vivienda (antes 6 semanas)</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number">90%</span>
-                            <span class="stat-label" style="color: var(--text-light);">Digitalización del sector (antes 18%)</span>
-                        </div>
-                        <div class="stat-box">
-                            <span class="stat-number">-35%</span>
-                            <span class="stat-label" style="color: var(--text-light);">Recorridos vehiculares innecesarios</span>
-                        </div>
+                        <div class="stat-box"><span class="stat-number">3 días</span><span class="stat-label" style="color: var(--text-light);">Búsqueda de vivienda (antes 6 semanas)</span></div>
+                        <div class="stat-box"><span class="stat-number">90%</span><span class="stat-label" style="color: var(--text-light);">Digitalización del sector (antes 18%)</span></div>
+                        <div class="stat-box"><span class="stat-number">-35%</span><span class="stat-label" style="color: var(--text-light);">Recorridos vehiculares innecesarios</span></div>
                     </div>
                     <div class="grid-4" style="margin-top: 3rem;">
-                        <div class="card" style="text-align: center;">
-                            <h3>+200</h3>
-                            <p>Inmobiliarias registradas</p>
-                        </div>
-                        <div class="card" style="text-align: center;">
-                            <h3>50.000</h3>
-                            <p>Usuarios activos/mes</p>
-                        </div>
-                        <div class="card" style="text-align: center;">
-                            <h3>USD 50M</h3>
-                            <p>Volumen transaccional</p>
-                        </div>
-                        <div class="card" style="text-align: center;">
-                            <h3>>15%</h3>
-                            <p>Tasa de conversión</p>
-                        </div>
+                        <div class="card" style="text-align: center;"><h3>+200</h3><p>Inmobiliarias registradas</p></div>
+                        <div class="card" style="text-align: center;"><h3>50.000</h3><p>Usuarios activos/mes</p></div>
+                        <div class="card" style="text-align: center;"><h3>USD 50M</h3><p>Volumen transaccional</p></div>
+                        <div class="card" style="text-align: center;"><h3>>15%</h3><p>Tasa de conversión</p></div>
                     </div>
                 </div>
             </section>
@@ -395,21 +256,9 @@
                 <div class="slide-content">
                     <h2 style="color: var(--text-light); border-color: var(--accent);">Regla de las 3I</h2>
                     <div class="grid-3" style="margin-top: 3rem;">
-                        <div>
-                            <h1 style="color: var(--secondary);">9.3</h1>
-                            <h3 style="color: var(--text-light);">Idea</h3>
-                            <p style="color: #94a3b8; font-size: 1rem;">Solución milimétrica a un problema crónico, alineada a Misiones 2035.</p>
-                        </div>
-                        <div>
-                            <h1 style="color: var(--secondary);">9.0</h1>
-                            <h3 style="color: var(--text-light);">Innovación</h3>
-                            <p style="color: #94a3b8; font-size: 1rem;">IA como motor orquestador, no como adorno estético.</p>
-                        </div>
-                        <div>
-                            <h1 style="color: var(--secondary);">8.5</h1>
-                            <h3 style="color: var(--text-light);">Implementación</h3>
-                            <p style="color: #94a3b8; font-size: 1rem;">Tech maduro, alianzas garantizadas, ecosistema Silicon Misiones.</p>
-                        </div>
+                        <div><h1 style="color: var(--secondary);">9.3</h1><h3 style="color: var(--text-light);">Idea</h3><p style="color: #94a3b8; font-size: 1rem;">Solución milimétrica a un problema crónico, alineada a Misiones 2035.</p></div>
+                        <div><h1 style="color: var(--secondary);">9.0</h1><h3 style="color: var(--text-light);">Innovación</h3><p style="color: #94a3b8; font-size: 1rem;">IA como motor orquestador, no como adorno estético.</p></div>
+                        <div><h1 style="color: var(--secondary);">8.5</h1><h3 style="color: var(--text-light);">Implementación</h3><p style="color: #94a3b8; font-size: 1rem;">Tech maduro, alianzas garantizadas, ecosistema Silicon Misiones.</p></div>
                     </div>
                     <div style="margin-top: 4rem;">
                         <p style="font-size: 1.8rem; font-weight: bold; color: var(--text-light);">"CIM IA es la verdadera transformación digital del sector productivo y comercial de Misiones."</p>
@@ -417,70 +266,62 @@
                 </div>
             </section>
 
-        </div> <!-- Fin de slide-track -->
-
-        <!-- Controles de Navegación -->
-        <div class="nav-controls">
-            <button class="nav-btn" id="prevBtn">❮ Anterior</button>
-            <button class="nav-btn" id="nextBtn">Siguiente ❯</button>
         </div>
 
-        <!-- Contador de Slides -->
+        <!-- Indicador de slides -->
         <div class="slide-counter" id="slideCounter">1 / 9</div>
+    </div>
 
-    </div> <!-- Fin de presentation-wrapper -->
-
-    <!-- Lógica de Navegación -->
     <script>
         const track = document.getElementById('slideTrack');
         const slides = document.querySelectorAll('.slide');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
         const counter = document.getElementById('slideCounter');
         
         let currentIndex = 0;
         const totalSlides = slides.length;
+        let isAnimating = false; // Variable para evitar saltos rápidos al hacer scroll
 
-        // Función para actualizar la vista
         function updateSlide() {
             track.style.transform = `translateX(-${currentIndex * 100}vw)`;
             counter.textContent = `${currentIndex + 1} / ${totalSlides}`;
-            
-            // Ocultar botón anterior en la primera diapositiva
-            prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
-            prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
-            
-            // Cambiar texto del botón siguiente en la última diapositiva
-            if(currentIndex === totalSlides - 1) {
-                nextBtn.textContent = 'Inicio ❯';
-            } else {
-                nextBtn.textContent = 'Siguiente ❯';
-            }
         }
 
-        // Event Listeners para los botones
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < totalSlides - 1) {
-                currentIndex++;
-            } else {
-                currentIndex = 0; // Vuelve al inicio
-            }
+        function goToSlide(index) {
+            if (isAnimating || index === currentIndex) return; // Ignora si se está moviendo
+            
+            isAnimating = true;
+            currentIndex = index;
             updateSlide();
-        });
 
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
+            // Bloquea el scroll por 800ms para que no pase 3 slides de golpe
+            setTimeout(() => {
+                isAnimating = false;
+            }, 800); 
+        }
+
+        // Navegación con Scroll del Mouse
+        window.addEventListener('wheel', (e) => {
+            e.preventDefault(); // Evita el scroll nativo de la página
+
+            if (e.deltaY > 0) {
+                // Scroll hacia abajo -> Siguiente
+                let nextIndex = currentIndex < totalSlides - 1 ? currentIndex + 1 : 0; // Vuelve al inicio si está en la última
+                goToSlide(nextIndex);
+            } else if (e.deltaY < 0) {
+                // Scroll hacia arriba -> Anterior
+                let prevIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1; // Va al final si está en la primera
+                goToSlide(prevIndex);
             }
-            updateSlide();
-        });
+        }, { passive: false }); // Necesario para poder usar e.preventDefault()
 
-        // Navegación con teclado (Flechas izquierda y derecha)
+        // Navegación con Teclado (Opcional, recomendado para presentaciones)
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight') {
-                nextBtn.click();
-            } else if (e.key === 'ArrowLeft') {
-                prevBtn.click();
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                let nextIndex = currentIndex < totalSlides - 1 ? currentIndex + 1 : 0;
+                goToSlide(nextIndex);
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                let prevIndex = currentIndex > 0 ? currentIndex - 1 : totalSlides - 1;
+                goToSlide(prevIndex);
             }
         });
 
