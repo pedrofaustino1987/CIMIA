@@ -117,34 +117,26 @@
     <main class="relative w-full h-full" id="deck">
 
         <!-- ========== SLIDE 00: LOGO SPLASH ========== -->
-        <section class="slide active" data-slide="0" data-label="Logo" role="region" aria-label="Logo CIM IA">
-            <div class="h-screen flex flex-col justify-center items-center relative overflow-hidden">
-                <!-- Background image -->
-                <div class="absolute inset-0">
-                    <img src="https://z-cdn-media.chatglm.cn/files/48033ddd-0edc-4c8b-a842-a7ac2389bb76.png?auth_key=1881213515-88b3c1957ae94ea286965f95f3f8cb25-0-7f0346b7ac4b370b97a5bf3cb2d77fcc" alt="" class="w-full h-full object-contain">
-                </div>
-                <!-- Gradient overlay: dark center, transparent bottom for logos -->
-                <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 45% at 50% 45%, rgba(23,23,23,0.75) 0%, rgba(23,23,23,0.4) 60%, rgba(23,23,23,0.15) 100%);"></div>
-                <!-- Grid texture -->
-                <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;"></div>
-                <!-- QR en esquina inferior derecha -->
-                <div class="absolute bottom-16 right-6 md:right-10 z-20 cursor-pointer group" onclick="openQR()">
-                    <div class="relative">
-                        <img src="https://z-cdn-media.chatglm.cn/files/257b2689-8984-4b83-a456-20b6e834d37e.png?auth_key=1881205299-cb642d5a9478403daa409d3a6ed62ea4-0-ce2daf98278d0de6ac55f0b5835173ad" alt="Escaneá el QR" class="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-orange-600/20">
-                        <div class="absolute -top-1 -right-1 w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="maximize-2" aria-hidden="true" class="lucide lucide-maximize-2 w-2.5 h-2.5 text-white"><path d="M15 3h6v6"></path><path d="m21 3-7 7"></path><path d="m3 21 7-7"></path><path d="M9 21H3v-6"></path></svg>
-                        </div>
-                    </div>
-                    <p class="text-[9px] text-neutral-500 text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Escanear</p>
-                </div>
-                <div class="relative z-10 flex flex-col items-center justify-center">
-                    <div class="mt-8 flex items-center gap-2 text-neutral-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="chevrons-down" aria-hidden="true" class="lucide lucide-chevrons-down w-4 h-4 animate-pulse"><path d="m7 6 5 5 5-5"></path><path d="m7 13 5 5 5-5"></path></svg>
-                        <span class="text-[11px] tracking-widest uppercase">Deslizar para continuar</span>
-                    </div>
+<!-- SLIDE 00: LOGO SPLASH -->
+<section class="slide active" data-slide="0" data-label="Logo">
+    <div class="h-screen flex flex-col justify-center items-center relative overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="https://z-cdn-media.chatglm.cn/files/48033ddd-0edc-4c8b-a842-a7ac2389bb76.png?auth_key=1881213515-88b3c1957ae94ea286965f95f3f8cb25-0-7f0346b7ac4b370b97a5bf3cb2d77fcc" alt="" class="w-full h-full object-contain">
+        </div>
+        <div class="absolute inset-0" style="background: radial-gradient(ellipse 60% 45% at 50% 45%, rgba(23,23,23,0.75) 0%, rgba(23,23,23,0.4) 60%, rgba(23,23,23,0.15) 100%);"></div>
+        <div class="absolute inset-0 opacity-[0.02]" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 80px 80px;"></div>
+        <!-- QR en esquina -->
+        <div class="absolute bottom-16 right-6 md:right-10 z-20 cursor-pointer group" onclick="openQR()">
+            <div class="relative">
+                <img src="https://z-cdn-media.chatglm.cn/files/257b2689-8984-4b83-a456-20b6e834d37e.png?auth_key=1881205299-cb642d5a9478403daa409d3a6ed62ea4-0-ce2daf98278d0de6ac55f0b5835173ad" alt="QR" class="w-16 h-16 md:w-20 md:h-20 rounded-2xl object-cover opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-orange-600/20">
+                <div class="absolute -top-1 -right-1 w-5 h-5 bg-orange-600 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i data-lucide="maximize-2" class="w-2.5 h-2.5 text-white"></i>
                 </div>
             </div>
-        </section>
+            <p class="text-[9px] text-neutral-500 text-center mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Escanear</p>
+        </div>
+    </div>
+</section>
 
         <!-- ========== SLIDE 01: COVER ========== -->
         <section class="slide" data-slide="1" data-label="Portada" role="region" aria-label="Portada">
